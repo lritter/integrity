@@ -24,7 +24,29 @@ module Integrity
     end
 
     def run
-      @result = checkout.run_in_dir(command)
+      cmd = normalize_build_command(command)
+      @result = checkout.run_in_dir(cmd)
+    end
+
+    def normalize_build_command(cmd)
+      new_cmd = cmd
+
+      # Check whether the build path has a gemfile.  If it does, change the 
+      # build command to make the command use that Gemfile.
+      gemfile = File.expand_path("#{checkout.directory}/Gemfile")
+      if File.exist?(gemfile)
+        set_gemfile_env = "BUNDLE_GEMFILE='#{gemfile}'"
+        normalized_rubyopts = normalize_rubyopts
+        set_rubyopts = "RUBYOPT='#{normalized_rubyopts}'" if normalized_rubyopts
+        new_cmd = "#{set_gemfile_env} #{set_rubyopts} && #{new_cmd}"
+      end
+      new_cmd
+    end
+
+    def normalize_rubyopts
+      if ENV['RUBYOPT']
+        ENV['RUBYOPT'].strip.gsub(%r{(bundler/setup\s*?)}, '')
+      end
     end
 
     def complete

@@ -1,5 +1,7 @@
 module Integrity
   class Checkout
+    attr_accessor :directory
+
     def initialize(repo, commit, directory, logger)
       @repo      = repo
       @commit    = commit

@@ -1,3 +1,7 @@
+This is a form of Integrity, the coninutous integration server.  This version
+'git://github.com/integrity/integrity' and is intended to be a quick and dirty
+way to get Integrity to work with projects that use bundler.
+
 Integrity — Continuous Integration server
 
 Code  http://github.com/integrity/integrity
