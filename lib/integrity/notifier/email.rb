@@ -1,11 +1,13 @@
 begin
   require "sinatra/ditties/mailer"
+  #require "smtp-tls"
 rescue LoadError
   abort "Install sinatra-ditties to use the Email notifier"
 end
 
 module Integrity
   class Notifier
+
     class Email < Notifier::Base
       attr_reader :to, :from
 

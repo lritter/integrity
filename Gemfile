@@ -25,7 +25,9 @@ gem "do_sqlite3", "0.10.2"
 
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
-# gem "sinatra-ditties"
+gem "sinatra-ditties"
+# gem "smtp-tls", :git => 'git://github.com/ambethia/smtp-tls.git'
+
 # = IRC
 # gem "shout-bot"
 # = Campfire

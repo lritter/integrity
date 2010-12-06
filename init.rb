@@ -5,7 +5,8 @@ require "integrity"
 
 # Uncomment as appropriate for the notifier you want to use
 # = Email
-# require "integrity/notifier/email"
+require "integrity/notifier/email"
+
 # = IRC
 # require "integrity/notifier/irc"
 # = Campfire
@@ -22,7 +23,7 @@ require "integrity"
 Integrity.configure do |c|
   c.database     =  "sqlite3:integrity.db"
   c.directory    =  "builds"
-  c.base_url     =  "http://ci.example.org"
+  c.base_url     =  "https://ci.animoto.com"
   c.log          =  "integrity.log"
   c.github_token =  "SECRET"
   c.build_all    = true
