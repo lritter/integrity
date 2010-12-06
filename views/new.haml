@@ -35,7 +35,7 @@
     %button.positive{ :type => "submit" }= @project.new? ? "Create Project" : "Update Project"
 
 - unless @project.new?
-  %form{ :method => "post", :action => project_path(@project) }
+  %form{ :method => "post", :action => project_url(@project) }
     .hidden
       %input{ :name => "_method", :type => "hidden", :value => "delete" }
     %h2 Delete this project

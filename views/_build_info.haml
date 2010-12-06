@@ -1,6 +1,6 @@
 %h1&= build.human_status
 
-%form{ :action => build_path(build), :method => :post }
+%form{ :action => build_url(build), :method => :post }
   %p.submit
     %button{ :type => :submit, :title => "Rebuild this commit" }<
       Rebuild

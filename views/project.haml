@@ -5,7 +5,7 @@
     %a{ :href => github_project_url(@project) }= github_project_link(@project)
 
 - if @project.blank?
-  %form.blank_slate{ :action => project_path(@project, :builds), :method => :post }
+  %form.blank_slate{ :action => project_url(@project, :builds), :method => :post }
     %p No builds for this project, buddy
     %h1
       You can request a
@@ -14,7 +14,7 @@
   #last_build{ :class => @project.status }
     = partial(:build_info, :build => @project.last_build)
 
-  %form{ :action => project_path(@project, :builds), :method => :post }
+  %form{ :action => project_url(@project, :builds), :method => :post }
     %p.submit.manual-build
       %button{ :type => :submit, :title => "Fetch the last commit from the remote repository and build it" }<
         Fetch and build
