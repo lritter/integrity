@@ -10,7 +10,7 @@ class UserAuthentication
     @app = app
     @find_user_by = options[:find_user_by] || lambda { |*| nil }
     @authenticate_with = options[:authenticate_with] || lambda { |*| puts "WARNING: default auth will deny everyone!"; false }
-    @pass = options[:pass] || []
+    @pass = [options[:pass] || []].flatten
   end
   
   def find_user(username, env)
