@@ -23,10 +23,12 @@ gem "rack", "1.1.0"
 gem "dm-sqlite-adapter", "1.0.0"
 gem "do_sqlite3", "0.10.2"
 
+gem "dm-yaml-adapter"
+
 # These are dependencies for the various notifiers. Uncomment as appropriate.
 # = Email
 gem "sinatra-ditties"
-# gem "smtp-tls", :git => 'git://github.com/ambethia/smtp-tls.git'
+gem "smtp-tls", :git => 'git://github.com/ambethia/smtp-tls.git'
 
 # = IRC
 # gem "shout-bot"

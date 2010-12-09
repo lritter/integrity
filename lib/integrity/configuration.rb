@@ -9,7 +9,8 @@ module Integrity
       :github_token,
       :log,
       :username,
-      :password
+      :password,
+      :protected
 
     def build_all?
       !! @build_all
@@ -24,11 +25,15 @@ module Integrity
     end
 
     def protected?
-      @username && @password
+      @protected || (@username && @password)
     end
 
     def logger
       @logger ||= Logger.new(@log)
+    end
+    
+    def user_database=(uri)
+      DataMapper.setup(:user_database, uri)
     end
 
     def database=(uri)
