@@ -81,7 +81,8 @@ module Integrity
         when :path_only
           base = request.script_name
         when :full
-          scheme = 'https' || request.scheme
+          scheme = request.env['HTTP_X_FORWARDED_PROTO'] || request.scheme
+          port = (Integer(request.env['HTTP_X_FORWARDED_PORT']) rescue nil) || request.port
           if (scheme == 'http' && request.port == 80 ||
               scheme == 'https' && request.port == 443)
             port = ""
