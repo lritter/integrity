@@ -27,7 +27,7 @@ Integrity.configure do |c|
   c.directory     =  "builds"
   c.base_url      =  "https://ci.animoto.com"
   c.log           =  "integrity.log"
-  c.github_token  =  Integrity.read_github_token(File.expand_path("../github_token",__FILE__))
+  c.github_token  =  Integrity.read_github_token(File.expand_path("../../github_token",__FILE__))
   c.build_all     = true
   c.builder       = :threaded, 5
 end
