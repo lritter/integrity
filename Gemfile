@@ -54,16 +54,16 @@ gem "smtp-tls", :git => 'git://github.com/ambethia/smtp-tls.git'
 #
 # = Development dependencies.
 #group :test do
-  #gem "ruby-debug" if RUBY_VERSION < '1.9'
-  #gem "sqlite3-ruby"
-  #gem "activerecord"
+  gem "ruby-debug" if RUBY_VERSION < '1.9'
+  gem "sqlite3-ruby"
+  gem "activerecord"
   #gem "delayed_job", :git => "git://github.com/tobi/delayed_job.git"
-  #gem "rr"
-  #gem "mocha"
-  #gem "redgreen"
-  #gem "dm-sweatshop"
-  #gem "ParseTree"
-  #gem "randexp"
+  gem "rr"
+  gem "mocha"
+  gem "redgreen"
+  gem "dm-sweatshop"
+  gem "ParseTree"
+  gem "randexp"
   #gem "rack-test", "0.5.0"
   #gem "rumbster"
   #gem "nokogiri"

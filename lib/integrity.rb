@@ -63,6 +63,12 @@ module Integrity
     config.logger
   end
 
+  def self.read_github_token(path)
+    token = File.open(File.expand_path(path), "r") { |f| f.read.strip }
+    token = nil if token == ''
+    token
+  end
+
   def self.app
     unless config.base_url
       warn "the base_url setting isn't set"

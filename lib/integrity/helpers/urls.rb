@@ -81,7 +81,7 @@ module Integrity
         when :path_only
           base = request.script_name
         when :full
-          scheme = request.scheme
+          scheme = 'https' || request.scheme
           if (scheme == 'http' && request.port == 80 ||
               scheme == 'https' && request.port == 443)
             port = ""
