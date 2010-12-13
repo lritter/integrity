@@ -64,8 +64,13 @@ module Integrity
   end
 
   def self.read_github_token(path)
-    token = File.open(File.expand_path(path), "r") { |f| f.read.strip }
-    token = nil if token == ''
+    begin 
+      token = File.open(File.expand_path(path), "r") { |f| f.read.strip }
+      token = nil if token == ''
+    rescue Exception => e
+      Integrity.logger.error "Error reading github token from #{path} (#{e.message})"
+      nil
+    end
     token
   end
 

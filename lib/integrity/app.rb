@@ -26,11 +26,15 @@ module Integrity
     end
 
     post "/github/:token" do |token|
+      Integrity.logger.info "Receieved POST to github endpoint with token #{token}"
+
       unless Integrity.config.github_enabled?
+        Integrity.logger.warn "Recieved github build request (#{token}) but github not enabled."
         pass
       end
 
       unless token == Integrity.config.github_token
+        Integrity.logger.warn "Unauthorized github token: #{token}"
         halt 403
       end
 
